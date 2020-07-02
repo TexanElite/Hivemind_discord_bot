@@ -37,7 +37,7 @@ To talk through the hivemind, just prepend your message with "$$"
             db.remove_user(str(message.author.id))
             await message.channel.send('We don\' want you anymore anyway scum')
         elif db.user_in_hivemind(str(message.author.id)):
-            await message.channel.send(message.content)
+            await message.channel.send(message.content[2:])
             await message.delete()
 
 client.run(BOT_TOKEN)
