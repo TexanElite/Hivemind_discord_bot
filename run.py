@@ -35,7 +35,7 @@ To talk through the hivemind, just prepend your message with "$$"
             await message.channel.send('You have been added to the hivemind!')
         elif message.content == '$$leave':
             db.remove_user(str(message.author.id))
-            await message.channel.send('We don\' want you anymore anyway scum')
+            await message.channel.send('We don\'t want you anymore anyway scum')
         elif db.user_in_hivemind(str(message.author.id)):
             await message.channel.send(message.content[2:])
             await message.delete()
