@@ -28,7 +28,7 @@ async def on_message(message):
 Help:
 To join the hivemind, type "$$join"
 To leave the hivemind, type "$$leave"
-To talk without it being redirected through the hivemind, just prepend your message with "$$"
+To talk through the hivemind, just prepend your message with "$$"
 ''')
         elif message.content == '$$join':
             db.add_user(str(message.author.id))
@@ -36,8 +36,8 @@ To talk without it being redirected through the hivemind, just prepend your mess
         elif message.content == '$$leave':
             db.remove_user(str(message.author.id))
             await message.channel.send('We don\' want you anymore anyway scum')
-    elif db.user_in_hivemind(str(message.author.id)):
-        await message.channel.send(message.content)
-        await message.delete()
+        elif db.user_in_hivemind(str(message.author.id)):
+            await message.channel.send(message.content)
+            await message.delete()
 
 client.run(BOT_TOKEN)
